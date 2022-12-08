@@ -12,7 +12,6 @@ def main():
     }
 
     player_score = 0
-    opponent_score = 0
 
     with open("input.txt") as file:
         for line in file:
@@ -26,24 +25,15 @@ def main():
             if opponent[line[0]] == player[line[2]]:
                 player_score += 3
 
-            if opponent[line[0]] == "rock":
-                if player[line[2]] == "paper":
-                    player_score += 6
-                else:
-                    opponent_score += 6
-
-            if opponent[line[0]] == "scissors":
-                if player[line[2]] == "rock":
-                    player_score += 6
-                else:
-                    opponent_score += 6
-
-            if opponent[line[0]] == "paper":
-                if player[line[2]] == "scissors":
-                    player_score += 6
-                else:
-                    opponent_score += 6
-
+            if opponent[line[0]] == "rock" and player[line[2]] == "paper":
+                player_score += 6
+                
+            if opponent[line[0]] == "scissors" and player[line[2]] == "rock":
+                player_score += 6
+                
+            if opponent[line[0]] == "paper" and player[line[2]] == "scissors":                
+                player_score += 6
+               
     print(player_score)
 
 
